@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dnipro Network Development</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <div style="background-color:#85c7ff" class="navbar navbar-fixed-top">
+        <div class="container">
+            @*<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>*@
+            <div class="navbar-collapse collapse" style="display:inline-block;">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Главная", "Index", new { controller = "Home" }, new { @class = "BlackColor" })</li>
+                    <li>@Html.ActionLink("Услуги", "Uslugi", new { controller = "Materials" }, new { @class = "BlackColor" })</li>
+                    <li>@Html.ActionLink("Контакты", "Contact", new { controller = "Home" }, new { @class = "BlackColor" })</li>
+                    <li>@Html.ActionLink("Вопросы", "Qestions", new { controller = "Materials" }, new { @class = "BlackColor" })</li>
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+             <div class="navbar-right">
+
+                 <table>
+                     <tr>
+                         <td style="vertical-align:central">
+                             <img style="height:50px" src="~/images/phone.png" class="img-responsive">
+                         </td>
+                         <td style="vertical-align:central">
+                             <label style="font-size:35px;font-family:Freestyle Script">+380939219897</label>
+                         </td>
+                     </tr>
+                 </table>
+             </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br />
+        @RenderBody()
+        <hr />
+        <footer class="navbar-fixed-bottom" style="background-color:lightgrey;text-align:center">
+            <p>&copy; @DateTime.Now.Year - Dnipro Network Development</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

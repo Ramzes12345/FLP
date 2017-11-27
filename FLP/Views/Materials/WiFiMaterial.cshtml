@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "WiFi Material";
+}
+
+Different Info   WiFiMaterial
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color:aqua">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            Цены для физических лиц
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <table class="table table-condensed">
+                            @*<thead>
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>*@
+                            <tbody>
+                                <tr>
+                                    <td>Прокладка кабеля</td>
+                                    <td> метр погонный</td>
+                                    <td>10грн</td>
+                                </tr>
+                                <tr>
+                                    <td>Укладка короба 5см</td>
+                                    <td> метр погонный</td>
+                                    <td>15грн</td>
+                                </tr>
+                                <tr>
+                                    <td>Укладка короба 10см</td>
+                                    <td> метр погонный</td>
+                                    <td>15грн</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color:aqua">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            Цены для юридечиских Лиц
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table table-condensed">
+                            @*<thead>
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>*@
+                            <tbody>
+                                <tr>
+                                    <td>Прокладка кабеля</td>
+                                    <td> метр погонный</td>
+                                    <td>10грн</td>
+                                </tr>
+                                <tr>
+                                    <td>Укладка короба 5см</td>
+                                    <td> метр погонный</td>
+                                    <td>15грн</td>
+                                </tr>
+                                <tr>
+                                    <td>Укладка короба 10см</td>
+                                    <td> метр погонный</td>
+                                    <td>15грн</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        @Html.Partial("_UslugiPartial")
+    </div>
+</div>
