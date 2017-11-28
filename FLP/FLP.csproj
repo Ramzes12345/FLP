@@ -193,11 +193,15 @@
     <Content Include="images\1.jpg" />
     <Content Include="images\2.jpg" />
     <Content Include="images\4.jpg" />
+    <Content Include="images\contact.png" />
+    <Content Include="images\dayCall.jpg" />
+    <Content Include="images\logo.png" />
     <Content Include="images\MainCategories\Bilding.jpg" />
     <Content Include="images\MainCategories\Signal.jpg" />
     <Content Include="images\MainCategories\WIFI.jpg" />
     <Content Include="images\MainCategories\Networks.jpg" />
     <Content Include="images\phone.png" />
+    <Content Include="Scripts\UserJS.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\relize.pubxml" />
@@ -255,11 +259,11 @@
     <Content Include="Views\Materials\BildingMaterial.cshtml" />
     <Content Include="Views\Materials\SignalMaterial.cshtml" />
     <Content Include="Views\Materials\_UslugiPartial.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

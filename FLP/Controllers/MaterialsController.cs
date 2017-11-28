@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FLP.Models;
+using System.Net.Mail;
 
 namespace FLP.Controllers
 {
@@ -40,5 +41,51 @@ namespace FLP.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult AjaxSendMessage(string phone, string mail, string text, int type)
+        {
+            var body = "";
+            var subject = "";
+            if (type == 1)
+            {
+                body = "Вопрос с сайта:  " + text + " , номер телефона - " + phone + " , email - " + mail;
+                subject = "Вопрос на сайте";
+                SendMessage("Спасибо за обращение на наш сайт, мы свяжемся с вами в ближайшее время ", mail, "Спасибо за обращение ");
+                mail = "lipinskiy.development@gmail.com";
+            }
+            if (type == 2)
+            {
+                body = "Необходимо Набрать номер телефона:  " + phone + " с email - " + mail;
+                subject = "Перезвонить на сайт";
+                mail = "lipinskiy.development@gmail.com";
+            }
+            SendMessage(body, mail, subject);
+            return Json("OK", JsonRequestBehavior.AllowGet);
+        }
+
+        public void SendMessage(string body, string mail, string subject)
+        {
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            client.Timeout = 10000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential("lipinskiy.development@gmail.com", "Ramzes12345");
+
+            MailMessage mm = new MailMessage("lipinskiy.development@gmail.com", mail, subject, body);
+            mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+            try
+            {
+                client.Send(mm);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
+                            ex.ToString());
+            }
+        }
     }
 }
