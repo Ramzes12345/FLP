@@ -46,23 +46,24 @@ namespace FLP.Controllers
         {
             var body = "";
             var subject = "";
+            var mail1 = "lipinskiy.development@gmail.com";
+            var mail2 = "d.leshikevich@gmail.com";
             if (type == 1)
             {
                 body = "Вопрос с сайта:  " + text + " , номер телефона - " + phone + " , email - " + mail;
                 subject = "Вопрос на сайте";
                 SendMessage("Спасибо за обращение на наш сайт, мы свяжемся с вами в ближайшее время ", mail, "Спасибо за обращение ");
-                mail = "lipinskiy.development@gmail.com";
             }
             if (type == 2)
             {
                 body = "Необходимо Набрать номер телефона:  " + phone + " с email - " + mail;
                 subject = "Перезвонить на сайт";
-                mail = "lipinskiy.development@gmail.com";
             }
-            SendMessage(body, mail, subject);
+            SendMessage(body, mail1, subject);
+            SendMessage(body, mail2, subject);
             return Json("OK", JsonRequestBehavior.AllowGet);
         }
-
+        
         public void SendMessage(string body, string mail, string subject)
         {
             SmtpClient client = new SmtpClient();
