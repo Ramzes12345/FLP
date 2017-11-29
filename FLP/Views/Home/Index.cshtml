@@ -1,4 +1,6 @@
-﻿@{
+﻿@using FLP.Models.MainDataModel
+@model AllData
+@{
     ViewBag.Title = "Dnipro Network Development";
 }
 
@@ -69,38 +71,57 @@
 <br />
 
 <div class="row" style="border-top: thick solid;">
-    <div class="col-md-4">
-        <h2>WiFi Material</h2>
-        <img src="~/images/MainCategories/WIFI.jpg">
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>@Html.ActionLink("WiFi Material", "WiFiMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
-    </div>
-    <div class="col-md-4">
-        <h2>Bilding Material</h2>
-        <img src="~/images/MainCategories/Bilding.jpg">
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p>@Html.ActionLink("Bilding Material", "BildingMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
 
-    </div>
-    <div class="col-md-4">
-        <h2>Signal Material</h2>
-        <img src="~/images/MainCategories/Signal.jpg">
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p>@Html.ActionLink("Signal Material", "SignalMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
 
-    </div>
-</div>
-
-    <div class="row">
+    @foreach (var item in Model.CategoriesList)
+    {
         <div class="col-md-4">
-            <h2>Networks Material</h2>
-            <img src="~/images/MainCategories/Networks.jpg">
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p>@Html.ActionLink("Networks Material", "NetworksMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
-
+            <h2>@item.CategoryName</h2>
+            <img src="@item.CategoryImagePath">
+            <p>
+                @item.CategoryText
+            </p>
+            <p>@Html.ActionLink("Просмотреть" + @item.CategoryName, item.CategoryAction, new { controller = item.CategoryController }, new { @class = "btn btn-primary" })</p>
         </div>
-    </div>
+     }
+        </div>
+
+
+
+    @*<br />
+        <div class="row" style="border-top: thick solid;">
+            <div class="col-md-4">
+                <h2>WiFi Material</h2>
+                <img src="~/images/MainCategories/WIFI.jpg">
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p>@Html.ActionLink("WiFi Material", "WiFiMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Bilding Material</h2>
+                <img src="~/images/MainCategories/Bilding.jpg">
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p>@Html.ActionLink("Bilding Material", "BildingMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
+
+            </div>
+            <div class="col-md-4">
+                <h2>Signal Material</h2>
+                <img src="~/images/MainCategories/Signal.jpg">
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p>@Html.ActionLink("Signal Material", "SignalMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
+
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Networks Material</h2>
+                    <img src="~/images/MainCategories/Networks.jpg">
+                    <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                    <p>@Html.ActionLink("Networks Material", "NetworksMaterial", new { controller = "Materials" }, new { @class = "btn btn-primary" })</p>
+
+                </div>
+            </div>*@

@@ -10,15 +10,28 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FLP.Models;
 using System.Net.Mail;
+using FLP.Models.MainDataModel;
 
 namespace FLP.Controllers
 {
     public class MaterialsController : Controller
     {
 
+        public static AllData AllData;
+
+        public MaterialsController()
+        {
+
+            if (AllData == null)
+            {
+                var LoadStartData = new LoadStartData();
+                AllData = LoadStartData.LoadMainDataCategories();
+            }
+        }
+
         public ActionResult WiFiMaterial()
         {
-            return View();
+            return View(AllData.CategoriesList.Where(k => k.CategoryId == 1).FirstOrDefault());
         }
         public ActionResult Uslugi()
         {
@@ -38,7 +51,7 @@ namespace FLP.Controllers
         }
         public ActionResult SignalMaterial()
         {
-            return View();
+            return View(AllData.CategoriesList.Where(k => k.CategoryId == 2).FirstOrDefault());
         }
 
         [HttpGet]

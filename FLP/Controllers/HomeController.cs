@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FLP.Models.MainDataModel;
 
 namespace FLP.Controllers
 {
     public class HomeController : Controller
     {
+        public static AllData AllData;
+
         public ActionResult Index()
         {
-            return View();
+            if(AllData == null)
+            {
+                var LoadStartData = new LoadStartData();
+                AllData = LoadStartData.LoadMainDataCategories();
+            }
+            return View(AllData);
         }
 
         public ActionResult About()
@@ -26,5 +34,7 @@ namespace FLP.Controllers
 
             return View();
         }
+
+       
     }
 }
