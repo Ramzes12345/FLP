@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" content="Content-type: text/html; charset=UTF-8"/>
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/images/logo.png")">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dnipro Network Development</title>
@@ -10,9 +12,13 @@
     @RenderSection("Styles", false)
 </head>
 <body>
+
     <div style="background-color:#85c7ff" class="navbar navbar-fixed-top">
         <div class="container">
-            @*<div class="navbar-header">
+            <div class="navbar-header">
+                <a href="~/"><img style="height:50px" src="~/images/logo.png" class="img-responsive"></a>
+            </div>
+                @*<div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -20,29 +26,30 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>*@
-            <div class="navbar-collapse collapse" style="display:inline-block;">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Главная", "Index", new { controller = "Home" }, new { @class = "BlackColor" })</li>
-                    <li>@Html.ActionLink("Услуги", "Uslugi", new { controller = "Materials" }, new { @class = "BlackColor" })</li>
-                    <li>@Html.ActionLink("Контакты", "Contact", new { controller = "Home" }, new { @class = "BlackColor" })</li>
-                    <li>@Html.ActionLink("Вопросы", "Qestions", new { controller = "Materials" }, new { @class = "BlackColor" })</li>
-                </ul>
-                @*@Html.Partial("_LoginPartial")*@
-             <div class="navbar-right">
+                <div class="navbar-collapse collapse" style="display:inline-block;">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Главная", "Index", new { controller = "Home" }, new { @class = "BlackColor" })</li>
+                        <li>@Html.ActionLink("О компании", "About", new { controller = "Home" }, new { @class = "BlackColor" })</li>
+                        <li>@Html.ActionLink("Услуги", "Uslugi", new { controller = "Materials" }, new { @class = "BlackColor" })</li>
+                        <li>@Html.ActionLink("Вопросы", "Qestions", new { controller = "Materials" }, new { @class = "BlackColor" })</li>
+                        <li>@Html.ActionLink("Контакты", "Contact", new { controller = "Home" }, new { @class = "BlackColor" })</li>
+                    </ul>
+                    @*@Html.Partial("_LoginPartial")*@
+                    <div class="navbar-right">
 
-                 <table>
-                     <tr>
-                         <td style="vertical-align:central">
-                             <img style="height:50px" src="~/images/phone.png" class="img-responsive">
-                         </td>
-                         <td style="vertical-align:central">
-                             <label style="font-size:35px;font-family:Freestyle Script">+380939219897</label>
-                         </td>
-                     </tr>
-                 </table>
-             </div>
+                        <table>
+                            <tr>
+                                <td style="vertical-align:central">
+                                    <img style="height:50px" src="~/images/phone.png" class="img-responsive">
+                                </td>
+                                <td style="vertical-align:central">
+                                    <label style="font-size:35px;font-family:Freestyle Script">+380939219897</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
     <div class="container body-content">
         <br />
@@ -50,11 +57,108 @@
         <hr />
         <footer class="navbar-fixed-bottom" style="background-color:lightgrey;text-align:center">
             <p>&copy; @DateTime.Now.Year - Dnipro Network Development</p>
+            <div style="text-align:right;display:inline-block;">
+
+                <div id="clbh_phone_div" onclick="showModalCall()" class="cbh-phone cbh-green cbh-show cbh-static" style="top: -10px; left: 1250px; display: block;" onmouseover="    this.className = 'cbh-phone cbh-green cbh-show cbh-hover';" onmouseout="    this.className = 'cbh-phone cbh-green cbh-show cbh-static';">
+                    <div class="cbh-ph-circle"></div>
+                    <div class="cbh-ph-circle-fill"></div>
+                    <div class="cbh-ph-img-circle"></div>
+                </div>
+            </div>
+
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
+        <div id="ModalDivCall" style="display: none; z-index: 9999; top: 6%;height:1000px;width:400px;
+                                                          z-index:9000;
+                                                          background-color: #F0F0F0;
+                                                          right: 1px;
+                                                          padding: 8px;
+                                                          position:fixed">
+<div style="right:1px;text-align:right">
+    <a style="right:1px;text-align:right" href="javascript:void(0)" onclick="hideModalCall()">Закрыть</a>
+
+</div>
+            <img style="height:200px" src="~/images/dayCall.jpg" class="img-responsive">
+            <br />
+
+            <div style="padding:5px;">
+                <table>
+                    <tr>
+                        <td style="text-align:left">
+                            Ваш e-mail:
+                        </td>
+                        <td style="text-align:left">
+                            <input type="text" id="emailCall" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">
+                            Ваш телефон:
+                        </td>
+                        <td style="text-align:left">
+                            <input type="text" id="phoneCall" value="+380" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <input type="button" id="SendMessageCall" value="Перезвонить" onclick="SendMessageCall()" />
+
+            </div>
+        </div>
+    <div onclick="showModal()" id="ModalDivsmall" style="z-index: 7000; top: 6%;height:40px;width:400px;
+                                                          background-color: #ccccff;
+                                                          left: 2%;
+                                                          top: 90%;
+                                                          position:fixed">
+        <label style="padding-left:10px">Задать вопрос:</label>
+    </div>
+
+        <div id="ModalDiv" style="display: none; z-index: 7500; position:fixed; height:400px;width:400px;
+                                                          left: 2%;
+                                                          background-color: #ccccff;
+                                                          top:50%;
+                                                          text-align: center;">
+            <div style="right:1px;text-align:right">
+                <a style="right:1px;text-align:right;padding:5px;" href="javascript:void(0)" onclick="hideModal()">Закрыть</a>
+
+            </div>
+            <label style="padding-left:10px">Задать вопрос!</label>
+            <br />
+            <div style="padding:5px;">
+                <table>
+                    <tr>
+                        <td style="text-align:left">
+                            Ваш e-mail:
+                        </td>
+                        <td style="text-align:left">
+                            <input type="text" id="email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">
+                            Ваш телефон:
+                        </td>
+                        <td style="text-align:left">
+                            <input type="text" value="+380" id="phone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;text-align:left">
+                            Вопрос:
+                        </td>
+                        <td style="text-align:left">
+                            <textarea rows="4" cols="50" id="textSend"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <input type="button" id="SendMessage" value="Отправить" onclick="SendMessage()" />
+
+            </div>
+        </div>
+
 </body>
 </html>

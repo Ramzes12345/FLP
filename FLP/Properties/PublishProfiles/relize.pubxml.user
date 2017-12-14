@@ -22,10 +22,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/29/2017 16:36:46</publishTime>
     </File>
     <File Include="bin/FLP.dll">
-      <publishTime>11/29/2017 17:18:11</publishTime>
+      <publishTime>11/29/2017 19:02:40</publishTime>
     </File>
     <File Include="bin/FLP.pdb">
-      <publishTime>11/29/2017 17:18:11</publishTime>
+      <publishTime>11/29/2017 19:02:40</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>11/29/2017 16:36:46</publishTime>
@@ -204,6 +204,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/phone.png">
       <publishTime>11/29/2017 16:36:45</publishTime>
     </File>
+    <File Include="images/PodCategories/PodCatSignal.jpg">
+      <publishTime>11/29/2017 18:04:45</publishTime>
+    </File>
+    <File Include="images/PodCategories/PodCatWIFI.jpg">
+      <publishTime>11/29/2017 17:30:50</publishTime>
+    </File>
     <File Include="packages.config">
       <publishTime>11/29/2017 16:36:46</publishTime>
     </File>
@@ -295,7 +301,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/29/2017 16:36:45</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/29/2017 16:36:45</publishTime>
+      <publishTime>11/29/2017 17:59:21</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>11/29/2017 16:36:45</publishTime>
@@ -325,13 +331,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/29/2017 16:36:45</publishTime>
     </File>
     <File Include="Views/Materials/SignalMaterial.cshtml">
-      <publishTime>11/29/2017 16:36:45</publishTime>
+      <publishTime>11/29/2017 18:52:21</publishTime>
     </File>
     <File Include="Views/Materials/Uslugi.cshtml">
       <publishTime>11/29/2017 16:36:45</publishTime>
     </File>
     <File Include="Views/Materials/WiFiMaterial.cshtml">
-      <publishTime>11/29/2017 16:36:45</publishTime>
+      <publishTime>11/29/2017 18:52:38</publishTime>
     </File>
     <File Include="Views/Materials/_UslugiPartial.cshtml">
       <publishTime>11/29/2017 16:36:45</publishTime>

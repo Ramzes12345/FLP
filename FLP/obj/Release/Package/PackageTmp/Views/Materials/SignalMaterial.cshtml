@@ -1,91 +1,90 @@
-﻿@{
-    ViewBag.Title = "Networks Material";
+﻿@using FLP.Models.MainDataModel
+@model Categories
+
+@{
+    ViewBag.Title = Model.CategoryName;
 }
 
-Different Info   Networks Material
+    Общая информация
 
+
+<br /><br />
 <div class="row">
     <div class="col-md-9">
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color:aqua">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                            Цены для физических лиц
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <table class="table table-condensed">
-                            @*<thead>
-                                    <tr>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </thead>*@
-                            <tbody>
-                                <tr>
-                                    <td>Прокладка кабеля</td>
-                                    <td> метр погонный</td>
-                                    <td>10грн</td>
-                                </tr>
-                                <tr>
-                                    <td>Укладка короба 5см</td>
-                                    <td> метр погонный</td>
-                                    <td>15грн</td>
-                                </tr>
-                                <tr>
-                                    <td>Укладка короба 10см</td>
-                                    <td> метр погонный</td>
-                                    <td>15грн</td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <div>
+            @foreach (var item in Model.PodCategoriesList)
+            {
+                @item.PodCategoryName
+                <table>
+                    <tr>
+                        <td>
+                            <img src="@item.PodCategoryImagePath">
+                        </td>
+                        <td style="width:10px"></td>
+                        <td style="vertical-align:top">
+                            @item.PodCategoryText
+                        </td>
+
+                    </tr>
+                    <tr style="height:20px">
+                        <td colspan="3"></td>
+                    </tr>
+                </table>
+            }
+        </div>
+
+
+        <br />
+
+        <h2>Price:</h2>
+        <div>
+            <div class="panel-group" id="accordion">
+                <a data-toggle="collapse" data-parent="#accordion" href="">
+                    dfgdfgdfgdfg
+                </a>
+                @foreach (var item in Model.PodCategoriesList)
+                {
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading" style="background-color:aqua">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href='@string.Format("#collapse{0}", item.PodCategoryId)'>
+                                    @item.PodCategoryName
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="@string.Format("collapse{0}", item.PodCategoryId)" class="panel-collapse collapse in">
+                            <div class="panel-body">
+
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        @foreach (var itemPrice in item.ServicePriceList)
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @itemPrice.PriceName
+                                                </td>
+                                                <td>
+                                                    @itemPrice.PriceType.PriceTypeName
+                                                </td>
+                                                <td>
+                                                    @itemPrice.PriceCost
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color:aqua">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                            Цены для юридечиских Лиц
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <table class="table table-condensed">
-                            @*<thead>
-                                    <tr>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </thead>*@
-                            <tbody>
-                                <tr>
-                                    <td>Прокладка кабеля</td>
-                                    <td> метр погонный</td>
-                                    <td>10грн</td>
-                                </tr>
-                                <tr>
-                                    <td>Укладка короба 5см</td>
-                                    <td> метр погонный</td>
-                                    <td>15грн</td>
-                                </tr>
-                                <tr>
-                                    <td>Укладка короба 10см</td>
-                                    <td> метр погонный</td>
-                                    <td>15грн</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                }
             </div>
         </div>
+
 
     </div>
     <div class="col-md-3">
